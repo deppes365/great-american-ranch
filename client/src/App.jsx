@@ -10,11 +10,11 @@ function App() {
 
 	useEffect(() => {
 		window.addEventListener('scroll', () => {
-			if (scrollY > 250) {
+			if (scrollY > 150) {
 				return setShowNav(false);
 			}
 
-			if (scrollY < 250) {
+			if (scrollY < 150) {
 				return setShowNav(true);
 			}
 		});
