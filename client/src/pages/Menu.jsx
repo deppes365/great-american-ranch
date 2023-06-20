@@ -4,24 +4,20 @@ import FrenchToast from '../assets/images/gar-french-toast.jpeg';
 import Ribs from '../assets/images/gar-ribs.jpeg';
 
 function Menu() {
-    const [selectorSticky, setSelectorSticky] = useState(false)
+	const [selectorSticky, setSelectorSticky] = useState(false);
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            const firstSection = document.querySelector('section#appetizers');
-            const menuSelector = document.querySelector('.menuSelector');
+	useEffect(() => {
+		window.addEventListener('scroll', () => {
+			const firstSection = document.querySelector('section#appetizers');
+			const menuSelector = document.querySelector('.menuSelector');
 
-            if(firstSection.getBoundingClientRect().top > 40) {
-                return setSelectorSticky(false)
-            } else if(firstSection.getBoundingClientRect().top <= 40) {
-                return setSelectorSticky(true)
-            };
-
-            
-
-            
-        })
-    }, [])
+			if (firstSection.getBoundingClientRect().top > 80) {
+				return setSelectorSticky(false);
+			} else if (firstSection.getBoundingClientRect().top <= 80) {
+				return setSelectorSticky(true);
+			}
+		});
+	}, []);
 
 	return (
 		<div className="page" id="menu">
@@ -38,60 +34,62 @@ function Menu() {
 					<img src={Ribs} alt="" />
 				</div>
 			</div>
-			<div className={`menuSelector ${selectorSticky ? 'sticky' : ''}`}>
-				<div className="container">
-					<a href="#appetizers" className="active">
-						Appetizers
-					</a>
-					<a href="#salads">Salads</a>
-					<a href="#sandwiches">Burgers & Sandwiches</a>
-					<a href="#tacos">Tacos</a>
-					<a href="#entrees">Entrees</a>
-					<a href="#seafood">Seafood</a>
-					<a href="#sides">Sides</a>
-					<a href="#desserts">Desserts</a>
+			<div className="menu">
+				<div className={`menuSelector ${selectorSticky ? 'sticky' : ''}`}>
+					<div className="container">
+						<a href="#appetizers" className="active">
+							Appetizers
+						</a>
+						<a href="#salads">Salads</a>
+						<a href="#sandwiches">Burgers & Sandwiches</a>
+						<a href="#tacos">Tacos</a>
+						<a href="#entrees">Entrees</a>
+						<a href="#seafood">Seafood</a>
+						<a href="#sides">Sides</a>
+						<a href="#desserts">Desserts</a>
+					</div>
 				</div>
+				<section id="appetizers">
+					<div className="container">
+						<h1>Appetizers</h1>
+					</div>
+				</section>
+				<section id="salads">
+					<div className="container">
+						<h1>Salads</h1>
+					</div>
+				</section>
+				<section id="sandwiches">
+					<div className="container">
+						<h1>Burgers & Sandwiches</h1>
+					</div>
+				</section>
+				<section id="tacos">
+					<div className="container">
+						<h1>Tacos</h1>
+					</div>
+				</section>
+				<section id="entrees">
+					<div className="container">
+						<h1>Entrees</h1>
+					</div>
+				</section>
+				<section id="seafood">
+					<div className="container">
+						<h1>Seafood</h1>
+					</div>
+				</section>
+				<section id="sides">
+					<div className="container">
+						<h1>Sides</h1>
+					</div>
+				</section>
+				<section id="desserts">
+					<div className="container">
+						<h1>Desserts</h1>
+					</div>
+				</section>
 			</div>
-			<section id="appetizers">
-				<div className="container">
-					<h1>Appetizers</h1>
-				</div>
-			</section>
-			<section id="salads">
-				<div className="container">
-					<h1>Salads</h1>
-				</div>
-			</section>
-			<section id="sandwiches">
-				<div className="container">
-					<h1>Burgers & Sandwiches</h1>
-				</div>
-			</section>
-			<section id="tacos">
-				<div className="container">
-					<h1>Tacos</h1>
-				</div>
-			</section>
-			<section id="entrees">
-				<div className="container">
-					<h1>Entrees</h1>
-				</div>
-			</section>
-			<section id="seafood">
-				<div className="container">
-					<h1>Seafood</h1>
-				</div>
-			</section>
-			<section id="sides">
-				<div className="container">
-					<h1>Sides</h1>
-				</div>
-			</section>
-			<section id="desserts">
-				<div className="container">
-					<h1>Desserts</h1>
-				</div>
-			</section>
 		</div>
 	);
 }

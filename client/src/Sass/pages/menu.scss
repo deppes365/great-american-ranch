@@ -43,6 +43,17 @@
 		}
 	}
 
+    .menu {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        
+        position: relative;
+        padding-top: 6rem;
+    }
+
 	.menuSelector {
 		width: 100%;
 		height: 50px;
@@ -51,15 +62,15 @@
 		justify-content: center;
 		align-items: center;
 		margin-bottom: 3rem;
-		position: relative;
-        transition: 0.3s ease;
+		position: absolute;
+        top: 0;
+        left: 0;
 
-		&.sticky {
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 9;
-		}
+        &.sticky {
+            position: fixed;
+        }
+
+		
 
 		.container {
 			display: flex;
@@ -103,5 +114,6 @@
 		min-height: 80vh;
 		display: flex;
 		scroll-margin-top: 6rem;
+        justify-content: center;
 	}
 }
