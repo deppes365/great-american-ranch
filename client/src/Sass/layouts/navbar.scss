@@ -1,0 +1,188 @@
+.navBar {
+	width: 100%;
+	height: 3rem;
+	@include md {
+		height: $navBarHeight;
+	}
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.4)
+		),
+		url('../assets/images/american-flag.jpg');
+	background-size: 100vw;
+	background-position-y: 30%;
+	background-repeat: no-repeat;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+
+	position: fixed;
+	top: -100%;
+	left: 0;
+	z-index: 10;
+	transition: 2s ease-in;
+
+	&.show {
+		top: 0;
+		transition: 0.75s ease-out;
+	}
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+		padding: 0 1rem;
+	}
+}
+
+.logo {
+	flex: 1;
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	img {
+		height: 100%;
+	}
+}
+
+.navLinks {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5rem;
+	backdrop-filter: blur(10px);
+	list-style: none;
+	flex: 3;
+	position: fixed;
+	top: 3rem;
+	left: 0;
+	width: 100%;
+	height: calc(100dvh - 3rem);
+	background-color: rgba(0, 0, 0, 0.9);
+	
+	left: 100vw;
+	transition: 0.3s ease;
+
+	&.showMenu {
+		left: 0;
+	}
+
+	@include md {
+		gap: 3rem;
+		position: relative;
+		flex-direction: row;
+		top: 0;
+		background-color: transparent;
+		backdrop-filter: none;
+		left: 0;
+		visibility: hidden;
+	}
+
+	li a {
+		text-decoration: none;
+		color: #fff;
+		font-weight: 500;
+		font-family: 'Doctrin', sans-serif;
+		font-size: 3rem;
+		@include md {
+			font-size: 1.5rem;
+		}
+		position: relative;
+		display: inline-block;
+		transform: translateY(5px);
+
+
+		&::after {
+			height: 3px;
+			width: 100%;
+			position: absolute;
+			bottom: 2px;
+			left: 50%;
+			transform: translateX(-50%) scaleX(0);
+			transform-origin: center;
+			content: '';
+			background-color: #fff;
+			z-index: 9;
+			transition: 0.2s ease;
+		}
+
+		&.active::after {
+			transform: translateX(-50%) scaleX(1);
+		}
+	}
+}
+
+.socialLinks {
+	flex: 1;
+	display: none;
+
+	@include md {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	a {
+		color: #fff;
+	}
+}
+
+.hamburger {
+	width: 2.25rem;
+	height: 2.25rem;
+	position: relative;
+	cursor: pointer;
+
+	@include md {
+		display: none;
+	}
+
+	.topLine, .middleLine, .bottomLine {
+		position: absolute;
+		content: '';
+		height: 3px;
+		width: 100%;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+		left: 50%;
+		transition: 0.3s ease;
+	}
+
+	.topLine {
+		top: 25%;
+		transform: translate(-50%, -50%);
+	}
+
+	.middleLine {
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.bottomLine {
+		top: 75%;
+		transform: translate(-50%, -50%);
+	}
+
+	&.showMenu {
+		.topLine {
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+		.middleLine {
+			opacity: 0;
+		}
+
+		.bottomLine {
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+}
